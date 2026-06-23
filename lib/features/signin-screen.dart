@@ -85,7 +85,7 @@ class _SingInScreenState extends State<SingInScreen> {
                     Container(
                       child: Row(
                         children: [
-                          Checkbox(value: true, onChanged: (bool) {}),
+                          Checkbox(value: false, onChanged: (bool) {}),
                           Text("Remember me", style: AppStyles.hintStyle),
                         ],
                       ),
@@ -117,7 +117,7 @@ class _SingInScreenState extends State<SingInScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: 45),
                 Row(
                   children: [
                     Container(
@@ -130,6 +130,79 @@ class _SingInScreenState extends State<SingInScreen> {
                       width: 110,
                       height: 1,
                       color: AppColors.borderField,
+                    ),
+                  ],
+                ),
+                SizedBox(height: 30),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 40),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                        width: 46,
+                        height: 46,
+                        decoration: BoxDecoration(
+                          color: AppColors.borderField,
+                          borderRadius: BorderRadius.circular(46),
+                        ),
+                        child: Image.asset("assets/images/google.png"),
+                      ),
+                      Container(
+                        width: 46,
+                        height: 46,
+                        decoration: BoxDecoration(
+                          color: AppColors.borderField,
+                          borderRadius: BorderRadius.circular(46),
+                        ),
+                        child: Image.asset("assets/images/facebook.png"),
+                      ),
+                      Container(
+                        width: 46,
+                        height: 46,
+                        decoration: BoxDecoration(
+                          color: AppColors.borderField,
+                          borderRadius: BorderRadius.circular(46),
+                        ),
+                        child: Image.asset("assets/images/apple.png"),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 30),
+                Wrap(
+                  alignment: WrapAlignment.center,
+
+                  children: [
+                    Text(
+                      'By logging, you agree to our ',
+                      style: AppStyles.hintStyle,
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      child: Text(
+                        "Terms & conditions ",
+                        style: AppStyles.textButtonBlack,
+                      ),
+                    ),
+                    Text('and ', style: AppStyles.hintStyle),
+                    InkWell(
+                      onTap: () {},
+                      child: Text(
+                        "privacyPolicy.",
+                        style: AppStyles.textButtonBlack,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 30),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Already have an account yet? "),
+                    InkWell(
+                      onTap: () {},
+                      child: Text('Sign Up', style: AppStyles.textButton),
                     ),
                   ],
                 ),

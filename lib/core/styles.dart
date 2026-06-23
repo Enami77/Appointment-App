@@ -26,4 +26,5 @@ class AppStyles {
     color: Color.fromARGB(255, 183, 182, 182),
   );
   static const textButton = TextStyle(fontSize: 14, color: AppColors.primary);
+  static const textButtonBlack = TextStyle(fontSize: 14, color: Colors.black);
 }

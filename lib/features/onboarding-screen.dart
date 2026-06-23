@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:appointment_app/core/colors.dart';
 import 'package:appointment_app/core/styles.dart';
-import 'package:appointment_app/features/signin-screen.dart';
+import 'package:appointment_app/features/authentification/sign%20in/signin-screen.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -119,7 +119,7 @@ class OnboardingScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => SingInScreen()),
+                      MaterialPageRoute(builder: (context) => SignInScreen()),
                     );
                   },
                   child: Padding(
@@ -134,6 +134,7 @@ class OnboardingScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              SizedBox(height: 40),
             ],
           ),
         ),

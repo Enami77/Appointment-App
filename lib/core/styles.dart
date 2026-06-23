@@ -27,4 +27,5 @@ class AppStyles {
   );
   static const textButton = TextStyle(fontSize: 14, color: AppColors.primary);
   static const textButtonBlack = TextStyle(fontSize: 14, color: Colors.black);
+  static const button = TextStyle(fontSize: 20, color: Colors.white);
 }

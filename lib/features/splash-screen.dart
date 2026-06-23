@@ -13,7 +13,6 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   double _bgOpacity = 0;
   double _frontOpacity = 0;
-
   @override
   void initState() {
     super.initState();

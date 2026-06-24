@@ -41,14 +41,19 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: Stack(
         children: [
           Center(
             child: AnimatedOpacity(
               duration: Duration(milliseconds: 800),
               opacity: _bgOpacity,
-              child: Image.asset("assets/images/logo-light.png"),
+              child: Image.asset(
+                "assets/images/logo-light.png",
+                color: Theme.of(context).brightness == Brightness.dark
+                    ? Colors.white
+                    : Color.fromARGB(255, 84, 122, 200),
+              ),
             ),
           ),
 
@@ -60,7 +65,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset("assets/images/logo.png"),
-                  Text(" Docdoc", style: AppStyles.logoSplashscreen),
+                  Text(" Docdoc", style: AppStyles.logoSplashscreen(context)),
                 ],
               ),
             ),

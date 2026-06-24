@@ -1,3 +1,4 @@
+import 'package:appointment_app/core/styles.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,10 @@ class _ButtonLanguageState extends State<ButtonLanguage> {
           context.setLocale(const Locale('ar'));
         }
       },
-      child: Text(context.locale.languageCode == 'ar' ? 'English' : 'العربية'),
+      child: Text(
+        context.locale.languageCode == 'ar' ? 'English' : 'Arabic',
+        style: AppStyles.textButton(context),
+      ),
     );
   }
 }

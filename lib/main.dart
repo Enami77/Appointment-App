@@ -1,7 +1,8 @@
+import 'package:appointment_app/core/colors.dart';
+import 'package:appointment_app/core/theme_manager.dart';
 import 'package:appointment_app/features/splash-screen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 void main() async {
@@ -24,16 +25,23 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      // ignore: deprecated_member_use
-      useInheritedMediaQuery: true,
-      locale: context.locale,
-      supportedLocales: context.supportedLocales,
-      localizationsDelegates: context.localizationDelegates,
+    return ValueListenableBuilder(
+      valueListenable: themeNotifier,
+      builder: (context, mode, child) {
+        return MaterialApp(
+          theme: AppTheme.lightTheme,
+          darkTheme: AppTheme.darkTheme,
+          themeMode: mode,
+          // ignore: deprecated_member_use
+          useInheritedMediaQuery: true,
+          locale: context.locale,
+          supportedLocales: context.supportedLocales,
+          localizationsDelegates: context.localizationDelegates,
 
-      builder: DevicePreview.appBuilder,
-      theme: ThemeData(textTheme: GoogleFonts.interTextTheme()),
-      home: const SplashScreen(),
+          builder: DevicePreview.appBuilder,
+          home: const SplashScreen(),
+        );
+      },
     );
   }
 }

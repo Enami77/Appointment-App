@@ -1,4 +1,6 @@
 import 'package:appointment_app/core/colors.dart';
+import 'package:appointment_app/core/button-language.dart';
+import 'package:appointment_app/core/theme_manager.dart';
 import 'package:appointment_app/features/authentification/widgets/methods-signin-and-privacy.dart';
 import 'package:appointment_app/core/styles.dart';
 import 'package:appointment_app/features/authentification/sign%20up/signup-screen.dart';
@@ -16,7 +18,8 @@ class _SignInScreenState extends State<SignInScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -25,24 +28,50 @@ class _SignInScreenState extends State<SignInScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    "signin_title".tr(),
-                    style: AppStyles.authentificationTitle,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "signin_title".tr(),
+                        style: AppStyles.authentificationTitle(context),
+                      ),
+                      ButtonLanguage(),
+                      IconButton(
+                        icon: Icon(
+                          themeNotifier.value == ThemeMode.dark
+                              ? Icons.light_mode
+                              : Icons.dark_mode,
+                          color: AppColors.primary,
+                        ),
+                        onPressed: () {
+                          themeNotifier.value =
+                              themeNotifier.value == ThemeMode.dark
+                              ? ThemeMode.light
+                              : ThemeMode.dark;
+                        },
+                      ),
+                    ],
                   ),
+
                   SizedBox(height: 15),
                   Text(
                     "signin_desc".tr(),
-                    style: AppStyles.authentificationdescription,
+                    style: AppStyles.authentificationdescription(context),
                   ),
                   SizedBox(height: 30),
                   TextFormField(
+                    style: TextStyle(
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black,
+                    ),
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(
                         horizontal: 12,
                         vertical: 20,
                       ),
                       hintText: 'email'.tr(),
-                      hintStyle: AppStyles.hintStyle,
+                      hintStyle: AppStyles.hintStyle(context),
                       focusColor: AppColors.borderField,
                       fillColor: Color(0xFFFDFDFF),
                       enabledBorder: OutlineInputBorder(
@@ -61,13 +90,18 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                   SizedBox(height: 15),
                   TextFormField(
+                    style: TextStyle(
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Colors.white
+                          : Colors.black,
+                    ),
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.symmetric(
                         horizontal: 12,
                         vertical: 20,
                       ),
                       hintText: 'password'.tr(),
-                      hintStyle: AppStyles.hintStyle,
+                      hintStyle: AppStyles.hintStyle(context),
                       focusColor: AppColors.borderField,
                       fillColor: Color(0xFFFDFDFF),
                       enabledBorder: OutlineInputBorder(
@@ -94,7 +128,7 @@ class _SignInScreenState extends State<SignInScreen> {
                             Checkbox(value: false, onChanged: (bool) {}),
                             Text(
                               "remember_me".tr(),
-                              style: AppStyles.hintStyle,
+                              style: AppStyles.hintStyle(context),
                             ),
                           ],
                         ),
@@ -103,7 +137,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         onPressed: () {},
                         child: Text(
                           "forgot_password".tr(),
-                          style: AppStyles.textButton,
+                          style: AppStyles.textButton(context),
                         ),
                       ),
                     ],
@@ -119,7 +153,10 @@ class _SignInScreenState extends State<SignInScreen> {
                           horizontal: MediaQuery.of(context).size.width * 0.245,
                           vertical: 15,
                         ),
-                        child: Text("login".tr(), style: AppStyles.button),
+                        child: Text(
+                          "login".tr(),
+                          style: AppStyles.button(context),
+                        ),
                       ),
                     ),
                   ),
@@ -130,7 +167,10 @@ class _SignInScreenState extends State<SignInScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("no_account".tr()),
+                      Text(
+                        "no_account".tr(),
+                        style: AppStyles.hintStyle(context),
+                      ),
                       InkWell(
                         onTap: () {
                           Navigator.pushReplacement(
@@ -142,7 +182,7 @@ class _SignInScreenState extends State<SignInScreen> {
                         },
                         child: Text(
                           'sign_up'.tr(),
-                          style: AppStyles.textButton,
+                          style: AppStyles.textButton(context),
                         ),
                       ),
                     ],

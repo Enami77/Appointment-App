@@ -16,7 +16,10 @@ class SignInWith extends StatelessWidget {
 
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: Text("or_sign_in_with".tr(), style: AppStyles.hintStyle),
+              child: Text(
+                "or_sign_in_with".tr(),
+                style: AppStyles.hintStyle(context),
+              ),
             ),
 
             Expanded(child: Container(height: 1, color: AppColors.borderField)),
@@ -71,20 +74,20 @@ class SignInWith extends StatelessWidget {
           alignment: WrapAlignment.center,
 
           children: [
-            Text("terms_agreement".tr(), style: AppStyles.hintStyle),
+            Text("terms_agreement".tr(), style: AppStyles.hintStyle(context)),
             InkWell(
               onTap: () {},
               child: Text(
                 "terms_conditions".tr(),
-                style: AppStyles.textButtonBlack,
+                style: AppStyles.textButtonBlack(context),
               ),
             ),
-            Text('and'.tr(), style: AppStyles.hintStyle),
+            Text('and'.tr(), style: AppStyles.hintStyle(context)),
             InkWell(
               onTap: () {},
               child: Text(
                 "privacy_policy".tr(),
-                style: AppStyles.textButtonBlack,
+                style: AppStyles.textButtonBlack(context),
               ),
             ),
           ],

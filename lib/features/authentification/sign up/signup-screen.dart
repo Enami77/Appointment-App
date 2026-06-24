@@ -1,4 +1,6 @@
 import 'package:appointment_app/core/colors.dart';
+import 'package:appointment_app/core/button-language.dart';
+import 'package:appointment_app/core/theme_manager.dart';
 import 'package:appointment_app/features/authentification/widgets/methods-signin-and-privacy.dart';
 import 'package:appointment_app/core/styles.dart';
 import 'package:appointment_app/features/authentification/sign%20in/signin-screen.dart';
@@ -17,7 +19,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
@@ -26,24 +29,50 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "signup_title".tr(),
-                  style: AppStyles.authentificationTitle,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "signup_title".tr(),
+                      style: AppStyles.authentificationTitle(context),
+                    ),
+                    ButtonLanguage(),
+                    IconButton(
+                      icon: Icon(
+                        themeNotifier.value == ThemeMode.dark
+                            ? Icons.light_mode
+                            : Icons.dark_mode,
+                        color: AppColors.primary,
+                      ),
+                      onPressed: () {
+                        themeNotifier.value =
+                            themeNotifier.value == ThemeMode.dark
+                            ? ThemeMode.light
+                            : ThemeMode.dark;
+                      },
+                    ),
+                  ],
                 ),
+
                 SizedBox(height: 15),
                 Text(
                   "signup_desc".tr(),
-                  style: AppStyles.authentificationdescription,
+                  style: AppStyles.authentificationdescription(context),
                 ),
                 SizedBox(height: 20),
                 TextFormField(
+                  style: TextStyle(
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black,
+                  ),
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(
                       horizontal: 12,
                       vertical: 20,
                     ),
                     hintText: 'email'.tr(),
-                    hintStyle: AppStyles.hintStyle,
+                    hintStyle: AppStyles.hintStyle(context),
                     focusColor: AppColors.borderField,
                     fillColor: Color(0xFFFDFDFF),
                     enabledBorder: OutlineInputBorder(
@@ -62,13 +91,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 SizedBox(height: 15),
                 TextFormField(
+                  style: TextStyle(
+                    color: Theme.of(context).brightness == Brightness.dark
+                        ? Colors.white
+                        : Colors.black,
+                  ),
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.symmetric(
                       horizontal: 12,
                       vertical: 20,
                     ),
                     hintText: 'password'.tr(),
-                    hintStyle: AppStyles.hintStyle,
+                    hintStyle: AppStyles.hintStyle(context),
                     focusColor: AppColors.borderField,
                     fillColor: Color(0xFFFDFDFF),
                     enabledBorder: OutlineInputBorder(
@@ -102,7 +136,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                         child: Text(
                           "signup_title".tr(),
-                          style: AppStyles.button,
+                          style: AppStyles.button(context),
                         ),
                       ),
                     ),
@@ -115,7 +149,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("have_account".tr()),
+                    Text(
+                      "have_account".tr(),
+                      style: AppStyles.hintStyle(context),
+                    ),
                     InkWell(
                       onTap: () {
                         Navigator.pushReplacement(
@@ -125,7 +162,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         );
                       },
-                      child: Text('sign_in'.tr(), style: AppStyles.textButton),
+                      child: Text(
+                        'sign_in'.tr(),
+                        style: AppStyles.textButton(context),
+                      ),
                     ),
                   ],
                 ),

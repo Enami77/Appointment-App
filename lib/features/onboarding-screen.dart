@@ -1,8 +1,9 @@
 import 'dart:ui';
 
 import 'package:appointment_app/core/colors.dart';
-import 'package:appointment_app/core/language.dart';
+import 'package:appointment_app/core/button-language.dart';
 import 'package:appointment_app/core/styles.dart';
+import 'package:appointment_app/core/theme_manager.dart';
 import 'package:appointment_app/features/authentification/sign%20in/signin-screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,7 @@ class OnboardingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
@@ -23,8 +24,25 @@ class OnboardingScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset("assets/images/logo.png", height: 38),
-                  Text(" Docdoc", style: AppStyles.logoOnboardingscreen),
+                  Text(
+                    " Docdoc",
+                    style: AppStyles.logoOnboardingscreen(context),
+                  ),
                   ButtonLanguage(),
+                  IconButton(
+                    icon: Icon(
+                      themeNotifier.value == ThemeMode.dark
+                          ? Icons.light_mode
+                          : Icons.dark_mode,
+                      color: AppColors.primary,
+                    ),
+                    onPressed: () {
+                      themeNotifier.value =
+                          themeNotifier.value == ThemeMode.dark
+                          ? ThemeMode.light
+                          : ThemeMode.dark;
+                    },
+                  ),
                 ],
               ),
               SizedBox(height: 50),
@@ -36,14 +54,19 @@ class OnboardingScreen extends StatelessWidget {
                     Center(
                       child: Transform.scale(
                         scale: 1.3,
-                        child: Image.asset("assets/images/logo-light.png"),
+                        child: Image.asset(
+                          "assets/images/logo-light.png",
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.white
+                              : Color.fromARGB(255, 84, 122, 200),
+                        ),
                       ),
                     ),
 
                     Transform.scale(
                       scale: 2.5,
                       child: Padding(
-                        padding: EdgeInsets.only(right: 55, left: 0),
+                        padding: EdgeInsets.only(right: 57, left: 0),
                         child: Image.asset(
                           "assets/images/doctor.png",
                           height: 500,
@@ -67,9 +90,10 @@ class OnboardingScreen extends StatelessWidget {
                             begin: Alignment.topCenter,
                             end: Alignment.bottomCenter,
                             colors: [
+                              Theme.of(context).scaffoldBackgroundColor
                               // ignore: deprecated_member_use
-                              Colors.white.withOpacity(0.0),
-                              Colors.white,
+                              .withOpacity(0.0),
+                              Theme.of(context).scaffoldBackgroundColor,
                             ],
                             stops: [0.0, 0.3],
                           ),
@@ -83,7 +107,7 @@ class OnboardingScreen extends StatelessWidget {
                       child: Text(
                         "onboarding_title".tr(),
                         textAlign: TextAlign.center,
-                        style: AppStyles.onBoardingTitle,
+                        style: AppStyles.onBoardingTitle(context),
                       ),
                     ),
 
@@ -93,13 +117,15 @@ class OnboardingScreen extends StatelessWidget {
                       left: 10,
                       child: Container(
                         alignment: AlignmentGeometry.topStart,
-                        color: Colors.white,
+                        color: Theme.of(context).brightness == Brightness.dark
+                            ? Color(0xFF121212)
+                            : Colors.white,
                         child: Padding(
                           padding: EdgeInsets.only(bottom: 25),
                           child: Text(
                             textAlign: TextAlign.center,
                             "onboarding_desc".tr(),
-                            style: AppStyles.onBoardingdesc,
+                            style: AppStyles.onBoardingdesc(context),
                           ),
                         ),
                       ),

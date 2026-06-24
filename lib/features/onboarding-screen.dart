@@ -1,8 +1,10 @@
 import 'dart:ui';
 
 import 'package:appointment_app/core/colors.dart';
+import 'package:appointment_app/core/language.dart';
 import 'package:appointment_app/core/styles.dart';
 import 'package:appointment_app/features/authentification/sign%20in/signin-screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class OnboardingScreen extends StatelessWidget {
@@ -22,6 +24,7 @@ class OnboardingScreen extends StatelessWidget {
                 children: [
                   Image.asset("assets/images/logo.png", height: 38),
                   Text(" Docdoc", style: AppStyles.logoOnboardingscreen),
+                  ButtonLanguage(),
                 ],
               ),
               SizedBox(height: 50),
@@ -40,7 +43,7 @@ class OnboardingScreen extends StatelessWidget {
                     Transform.scale(
                       scale: 2.5,
                       child: Padding(
-                        padding: EdgeInsets.only(right: 30),
+                        padding: EdgeInsets.only(right: 55, left: 0),
                         child: Image.asset(
                           "assets/images/doctor.png",
                           height: 500,
@@ -78,13 +81,9 @@ class OnboardingScreen extends StatelessWidget {
                       right: 20,
                       left: 20,
                       child: Text(
-                        "Best Doctor \n Appointment App",
+                        "onboarding_title".tr(),
                         textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xFF247CFF),
-                          fontSize: 30,
-                          fontWeight: FontWeight.bold,
-                        ),
+                        style: AppStyles.onBoardingTitle,
                       ),
                     ),
 
@@ -97,13 +96,10 @@ class OnboardingScreen extends StatelessWidget {
                         color: Colors.white,
                         child: Padding(
                           padding: EdgeInsets.only(bottom: 25),
-                          child: const Text(
+                          child: Text(
                             textAlign: TextAlign.center,
-                            "Manage and schedule all of your medical appointments easily with Docdoc to get a new experience.",
-                            style: TextStyle(
-                              color: Color(0xFF757575),
-                              fontSize: 13,
-                            ),
+                            "onboarding_desc".tr(),
+                            style: AppStyles.onBoardingdesc,
                           ),
                         ),
                       ),
@@ -128,7 +124,7 @@ class OnboardingScreen extends StatelessWidget {
                       vertical: 15,
                     ),
                     child: Text(
-                      "Get Started",
+                      "get_started".tr(),
                       style: TextStyle(fontSize: 20, color: Colors.white),
                     ),
                   ),

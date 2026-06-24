@@ -28,4 +28,13 @@ class AppStyles {
   static const textButton = TextStyle(fontSize: 14, color: AppColors.primary);
   static const textButtonBlack = TextStyle(fontSize: 14, color: Colors.black);
   static const button = TextStyle(fontSize: 20, color: Colors.white);
+  static const onBoardingTitle = TextStyle(
+    color: Color(0xFF247CFF),
+    fontSize: 30,
+    fontWeight: FontWeight.bold,
+  );
+  static const onBoardingdesc = TextStyle(
+    color: Color(0xFF757575),
+    fontSize: 13,
+  );
 }

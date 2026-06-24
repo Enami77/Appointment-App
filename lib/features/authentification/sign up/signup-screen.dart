@@ -3,6 +3,7 @@ import 'package:appointment_app/features/authentification/widgets/methods-signin
 import 'package:appointment_app/core/styles.dart';
 import 'package:appointment_app/features/authentification/sign%20in/signin-screen.dart';
 import 'package:appointment_app/features/authentification/sign%20up/phone-field.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -25,10 +26,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Create Account", style: AppStyles.authentificationTitle),
+                Text(
+                  "signup_title".tr(),
+                  style: AppStyles.authentificationTitle,
+                ),
                 SizedBox(height: 15),
                 Text(
-                  "Sign up now and start exploring all that our app has to offer. We're excited to welcome you to our community!",
+                  "signup_desc".tr(),
                   style: AppStyles.authentificationdescription,
                 ),
                 SizedBox(height: 20),
@@ -38,7 +42,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       horizontal: 12,
                       vertical: 20,
                     ),
-                    hintText: 'Email',
+                    hintText: 'email'.tr(),
                     hintStyle: AppStyles.hintStyle,
                     focusColor: AppColors.borderField,
                     fillColor: Color(0xFFFDFDFF),
@@ -63,7 +67,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       horizontal: 12,
                       vertical: 20,
                     ),
-                    hintText: 'Password',
+                    hintText: 'password'.tr(),
                     hintStyle: AppStyles.hintStyle,
                     focusColor: AppColors.borderField,
                     fillColor: Color(0xFFFDFDFF),
@@ -93,10 +97,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       onPressed: () {},
                       child: Padding(
                         padding: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width * 0.2,
+                          horizontal: MediaQuery.of(context).size.width * 0.19,
                           vertical: 15,
                         ),
-                        child: Text("Create Account", style: AppStyles.button),
+                        child: Text(
+                          "signup_title".tr(),
+                          style: AppStyles.button,
+                        ),
                       ),
                     ),
                   ),
@@ -108,7 +115,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("You don't have an account? "),
+                    Text("have_account".tr()),
                     InkWell(
                       onTap: () {
                         Navigator.pushReplacement(
@@ -118,7 +125,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                         );
                       },
-                      child: Text('Sign In', style: AppStyles.textButton),
+                      child: Text('sign_in'.tr(), style: AppStyles.textButton),
                     ),
                   ],
                 ),

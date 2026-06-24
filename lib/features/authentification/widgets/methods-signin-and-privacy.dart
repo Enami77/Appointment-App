@@ -1,5 +1,6 @@
 import 'package:appointment_app/core/colors.dart';
 import 'package:appointment_app/core/styles.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class SignInWith extends StatelessWidget {
@@ -11,19 +12,17 @@ class SignInWith extends StatelessWidget {
       children: [
         Row(
           children: [
-            Container(
-              width: MediaQuery.of(context).size.width * 0.27,
-              height: 1,
-              color: AppColors.borderField,
+            Expanded(child: Container(height: 1, color: AppColors.borderField)),
+
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8),
+              child: Text("or_sign_in_with".tr(), style: AppStyles.hintStyle),
             ),
-            Text("  Or sign in with  ", style: AppStyles.hintStyle),
-            Container(
-              width: MediaQuery.of(context).size.width * 0.27,
-              height: 1,
-              color: AppColors.borderField,
-            ),
+
+            Expanded(child: Container(height: 1, color: AppColors.borderField)),
           ],
         ),
+
         SizedBox(height: 30),
         Padding(
           padding: EdgeInsets.symmetric(vertical: 5, horizontal: 40),
@@ -72,18 +71,21 @@ class SignInWith extends StatelessWidget {
           alignment: WrapAlignment.center,
 
           children: [
-            Text('By logging, you agree to our ', style: AppStyles.hintStyle),
+            Text("terms_agreement".tr(), style: AppStyles.hintStyle),
             InkWell(
               onTap: () {},
               child: Text(
-                "Terms & conditions ",
+                "terms_conditions".tr(),
                 style: AppStyles.textButtonBlack,
               ),
             ),
-            Text('and ', style: AppStyles.hintStyle),
+            Text('and'.tr(), style: AppStyles.hintStyle),
             InkWell(
               onTap: () {},
-              child: Text("privacyPolicy.", style: AppStyles.textButtonBlack),
+              child: Text(
+                "privacy_policy".tr(),
+                style: AppStyles.textButtonBlack,
+              ),
             ),
           ],
         ),

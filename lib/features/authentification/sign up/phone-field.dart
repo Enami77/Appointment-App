@@ -1,6 +1,7 @@
 import 'package:appointment_app/core/colors.dart';
 import 'package:appointment_app/core/styles.dart';
 import 'package:country_code_picker/country_code_picker.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class PhoneField extends StatelessWidget {
@@ -37,11 +38,11 @@ class PhoneField extends StatelessWidget {
 
           const SizedBox(width: 16),
 
-          const Expanded(
+          Expanded(
             child: TextField(
               keyboardType: TextInputType.phone,
               decoration: InputDecoration(
-                hintText: 'Your number',
+                hintText: "phone_number".tr(),
                 hintStyle: AppStyles.hintStyle,
                 border: InputBorder.none,
               ),

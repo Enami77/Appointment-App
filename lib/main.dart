@@ -1,6 +1,6 @@
 import 'package:appointment_app/core/colors.dart';
 import 'package:appointment_app/core/theme_manager.dart';
-import 'package:appointment_app/features/splash-screen.dart';
+import 'package:appointment_app/features/splash_screen.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';

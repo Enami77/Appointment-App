@@ -1,10 +1,11 @@
 import 'dart:ui';
 
+import 'package:appointment_app/core/assets_manager.dart';
 import 'package:appointment_app/core/colors.dart';
-import 'package:appointment_app/core/button-language.dart';
+import 'package:appointment_app/core/button_language.dart';
 import 'package:appointment_app/core/styles.dart';
 import 'package:appointment_app/core/theme_manager.dart';
-import 'package:appointment_app/features/authentification/sign%20in/signin-screen.dart';
+import 'package:appointment_app/features/authentification/sign%20_in/signin_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class OnboardingScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset("assets/images/logo.png", height: 38),
+                  Image.asset(AssetsManager.logo, height: 38),
                   Text(
                     " Docdoc",
                     style: AppStyles.logoOnboardingscreen(context),
@@ -55,7 +56,7 @@ class OnboardingScreen extends StatelessWidget {
                       child: Transform.scale(
                         scale: 1.3,
                         child: Image.asset(
-                          "assets/images/logo-light.png",
+                          AssetsManager.logoLight,
                           color: Theme.of(context).brightness == Brightness.dark
                               ? Colors.white
                               : Color.fromARGB(255, 84, 122, 200),
@@ -68,7 +69,7 @@ class OnboardingScreen extends StatelessWidget {
                       child: Padding(
                         padding: EdgeInsets.only(right: 57, left: 0),
                         child: Image.asset(
-                          "assets/images/doctor.png",
+                          AssetsManager.doctor,
                           height: 500,
                           width: 300,
                         ),

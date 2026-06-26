@@ -6,7 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class PhoneField extends StatelessWidget {
-  const PhoneField({super.key});
+  final TextEditingController phoneController;
+  const PhoneField({super.key, required this.phoneController});
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,8 @@ class PhoneField extends StatelessWidget {
           const SizedBox(width: 16),
 
           Expanded(
-            child: TextField(
+            child: TextFormField(
+              controller: phoneController,
               style: TextStyle(
                 color: Theme.of(context).brightness == Brightness.dark
                     ? Colors.white

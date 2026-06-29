@@ -25,5 +25,10 @@
   "forgot_password_title": " نسيت كلمة المرور",
   "forgot_password_desc": "في تطبيقنا، نولي حماية معلوماتك أهمية كبيرة.",
   "email_or_phone": "بريد الكتروني او رقم هاتف",
-  "reset_password": "إعادة التعيين"
+  "reset_password": "إعادة التعيين",
+  "fill_profile_title": "إملأ معلومات ملفك",
+  "fill_profile_desc": "يرجى تخصيص بضع دقائق لإكمال ملفك الشخصي بأكبر قدر ممكن من المعلومات.",
+  "full_name": "الاسم الكامل",
+  "birthday": "تاريخ الميلاد",
+  "submit": "أرسل"
 }

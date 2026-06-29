@@ -7,9 +7,10 @@ import 'package:flutter/material.dart';
 class ForgotPasswordSecreen extends StatelessWidget {
   ForgotPasswordSecreen({super.key});
 
-  final TextEditingController emailPhoneController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailPhoneController = TextEditingController();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
@@ -30,7 +31,7 @@ class ForgotPasswordSecreen extends StatelessWidget {
                   ),
                   SizedBox(height: 15),
                   Text(
-                    "signin_desc".tr(),
+                    "forgot_password_desc".tr(),
                     style: AppStyles.authentificationdescription(context),
                   ),
                   SizedBox(height: 30),

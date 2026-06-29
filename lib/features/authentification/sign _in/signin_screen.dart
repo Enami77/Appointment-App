@@ -1,6 +1,7 @@
 import 'package:appointment_app/core/colors.dart';
 import 'package:appointment_app/core/button_language.dart';
 import 'package:appointment_app/core/theme_manager.dart';
+import 'package:appointment_app/features/authentification/sign%20_in/forgot_password_secreen.dart';
 import 'package:appointment_app/features/authentification/sign%20_in/signin_provider.dart';
 import 'package:appointment_app/features/authentification/widgets/email_field.dart';
 import 'package:appointment_app/features/authentification/widgets/methods_signin_and_privacy.dart';
@@ -114,7 +115,13 @@ class SignInBody extends StatelessWidget {
                         ),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => ForgotPasswordSecreen(),
+                            ),
+                          );
+                        },
                         child: Text(
                           "forgot_password".tr(),
                           style: AppStyles.textButton(context),
@@ -125,42 +132,46 @@ class SignInBody extends StatelessWidget {
                   SizedBox(height: 30),
                   Consumer<SignInProvider>(
                     builder: (context, provider, child) {
-                      return ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: MaterialButton(
-                          color: AppColors.primary,
-                          onPressed: provider.isLoading
-                              ? null
-                              : () async {
-                                  await provider.login(
-                                    emailController.text,
-                                    passwordController.text,
-                                  );
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(content: Text(provider.message!)),
-                                  );
-                                },
-                          child: provider.isLoading
-                              ? const SizedBox(
-                                  width: 20,
-                                  height: 20,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                    color: Colors.white,
+                      return Center(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: MaterialButton(
+                            color: AppColors.primary,
+                            onPressed: provider.isLoading
+                                ? null
+                                : () async {
+                                    await provider.login(
+                                      emailController.text,
+                                      passwordController.text,
+                                    );
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text(provider.message!),
+                                      ),
+                                    );
+                                  },
+                            child: provider.isLoading
+                                ? const SizedBox(
+                                    width: 20,
+                                    height: 20,
+                                    child: CircularProgressIndicator(
+                                      strokeWidth: 2,
+                                      color: Colors.white,
+                                    ),
+                                  )
+                                : Padding(
+                                    padding: EdgeInsets.symmetric(
+                                      horizontal:
+                                          MediaQuery.of(context).size.width *
+                                          0.245,
+                                      vertical: 15,
+                                    ),
+                                    child: Text(
+                                      "login".tr(),
+                                      style: AppStyles.button(context),
+                                    ),
                                   ),
-                                )
-                              : Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        MediaQuery.of(context).size.width *
-                                        0.245,
-                                    vertical: 15,
-                                  ),
-                                  child: Text(
-                                    "login".tr(),
-                                    style: AppStyles.button(context),
-                                  ),
-                                ),
+                          ),
                         ),
                       );
                     },

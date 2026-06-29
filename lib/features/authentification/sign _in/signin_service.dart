@@ -1,4 +1,4 @@
-import 'package:appointment_app/features/authentification/dio_helper.dart';
+import 'package:appointment_app/core/dio_helper.dart';
 import 'package:appointment_app/features/authentification/models/login_model.dart';
 
 class SignInService {

@@ -23,5 +23,9 @@
 
   "phone_number": "Your Number",
 
-  "sign_in": "Sign In"
+  "sign_in": "Sign In",
+  "forgot_password_title": " Forgot Password",
+  "forgot_password_desc": "At our app, we take the security of your information seriously.",
+  "email_or_phone": "ُEmail or Phone Number",
+  "reset_password": "Reset Password"
 }

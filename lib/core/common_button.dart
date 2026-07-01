@@ -18,7 +18,7 @@ class Button extends StatelessWidget {
           color: AppColors.primary,
           onPressed: function,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 70, vertical: 15),
+            padding: EdgeInsets.symmetric(horizontal: 100, vertical: 15),
             child: Text(text.tr(), style: AppStyles.button(context)),
           ),
         ),

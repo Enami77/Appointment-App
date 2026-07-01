@@ -32,5 +32,9 @@
   "fill_profile_desc": "Please take a few minutes to fill out your profile with as much detail as possible.",
   "full_name": "Full Name",
   "birthday": "Birthday",
-  "submit": "submit"
+  "submit": "submit",
+  "pin_title": "Set Up PIN",
+  "pin_desc": "Add a PIN number to make your account more secure and easy to sign in.",
+  "face_id_title": "Face ID",
+  "face_id_desc": "Add a Face ID to make your account more secure and easy to sign in."
 }

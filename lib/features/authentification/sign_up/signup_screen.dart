@@ -88,23 +88,23 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             onPressed: provider.isLoading
                                 ? null
                                 : () async {
-                                    await provider.register(
-                                      RegisterRequestModel(
-                                        name: "noura",
-                                        email: emailController.text,
-                                        phone: phoneController.text,
-                                        gender: "0",
-                                        password: passwordController.text,
-                                        passwordConfirmation:
-                                            passwordController.text,
-                                      ),
-                                    );
+                                    // await provider.register(
+                                    //   RegisterRequestModel(
+                                    //     name: "noura",
+                                    //     email: emailController.text,
+                                    //     phone: phoneController.text,
+                                    //     gender: "0",
+                                    //     password: passwordController.text,
+                                    //     passwordConfirmation:
+                                    //         passwordController.text,
+                                    //   ),
+                                    // );
 
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(provider.message ?? ""),
-                                      ),
-                                    );
+                                    // ScaffoldMessenger.of(context).showSnackBar(
+                                    //   SnackBar(
+                                    //     content: Text(provider.message ?? ""),
+                                    //   ),
+                                    // );
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (context) =>

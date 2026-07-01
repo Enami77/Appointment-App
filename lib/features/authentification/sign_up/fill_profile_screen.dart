@@ -2,6 +2,7 @@ import 'package:appointment_app/core/colors.dart';
 import 'package:appointment_app/core/common_button.dart';
 import 'package:appointment_app/core/styles.dart';
 import 'package:appointment_app/features/authentification/sign_up/phone_field.dart';
+import 'package:appointment_app/features/authentification/sign_up/pin_screen.dart';
 import 'package:appointment_app/features/authentification/widgets/email_field.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -39,31 +40,30 @@ class FillProfileScreen extends StatelessWidget {
                   style: AppStyles.authentificationdescription(context),
                 ),
                 SizedBox(height: 20),
-                // Stack(
-                //   children: [
-                //     Container(
-                //       width: 120,
-                //       height: 120,
-                //       decoration: BoxDecoration(
-                //         color: Color(0xFFDDDDDD),
-                //         borderRadius: BorderRadius.circular(120),
-                //       ),
-                //       child: Padding(
-                //         padding: EdgeInsetsGeometry.only(right: 30),
-                //         child: Icon(
-                //           Icons.person,
-                //           color: Colors.white,
-                //           size: 150,
-                //         ),
-                //       ),
-                //     ),
-                //   ],
-                // ),
                 Center(
-                  child: InkWell(
-                    child: Image.asset("assets/images/profile_picture.png"),
+                  child: Stack(
+                    children: [
+                      Container(
+                        width: 120,
+                        height: 120,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFDDDDDD),
+                          borderRadius: BorderRadius.circular(120),
+                        ),
+
+                        child: Transform.translate(
+                          offset: const Offset(-10, -5),
+                          child: Icon(
+                            Icons.person,
+                            color: Colors.white,
+                            size: 150,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
+
                 SizedBox(height: 25),
                 TextFormField(
                   controller: fullNameController,
@@ -129,7 +129,14 @@ class FillProfileScreen extends StatelessWidget {
                 SizedBox(height: 15),
                 PhoneField(phoneController: phoneController),
                 SizedBox(height: 70),
-                Button(text: "submit", function: () {}),
+                Button(
+                  text: "submit",
+                  function: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => PinScreen()),
+                    );
+                  },
+                ),
               ],
             ),
           ),

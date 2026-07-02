@@ -1,7 +1,6 @@
 import 'package:appointment_app/core/colors.dart';
 import 'package:appointment_app/core/button_language.dart';
 import 'package:appointment_app/core/theme_manager.dart';
-import 'package:appointment_app/features/authentification/models/register_model.dart';
 import 'package:appointment_app/features/authentification/sign_up/fill_profile_screen.dart';
 import 'package:appointment_app/features/authentification/sign_up/signup_provider.dart';
 import 'package:appointment_app/features/authentification/widgets/email_field.dart';

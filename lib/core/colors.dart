@@ -12,6 +12,7 @@ class AppColors {
   static const surface = Colors.white;
   static const darkSurface = Color(0xFF1E1E1E);
   static const primaryLight = Color(0xFFF4F8FF);
+  static const buttonCard = Colors.white;
 }
 
 class AppTheme {

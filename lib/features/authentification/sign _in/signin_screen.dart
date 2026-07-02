@@ -8,6 +8,7 @@ import 'package:appointment_app/features/authentification/widgets/methods_signin
 import 'package:appointment_app/core/styles.dart';
 import 'package:appointment_app/features/authentification/sign_up/signup_screen.dart';
 import 'package:appointment_app/features/authentification/widgets/password_field.dart';
+import 'package:appointment_app/features/home/home_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -140,13 +141,18 @@ class SignInBody extends StatelessWidget {
                             onPressed: provider.isLoading
                                 ? null
                                 : () async {
-                                    await provider.login(
-                                      emailController.text,
-                                      passwordController.text,
-                                    );
-                                    ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
-                                        content: Text(provider.message!),
+                                    // await provider.login(
+                                    //   emailController.text,
+                                    //   passwordController.text,
+                                    // );
+                                    // ScaffoldMessenger.of(context).showSnackBar(
+                                    //   SnackBar(
+                                    //     content: Text(provider.message!),
+                                    //   ),
+                                    // );
+                                    Navigator.of(context).pushReplacement(
+                                      MaterialPageRoute(
+                                        builder: (context) => HomeScreen(),
                                       ),
                                     );
                                   },

@@ -22,6 +22,16 @@ class AppStyles {
     );
   }
 
+  static TextStyle titles(BuildContext context) {
+    return TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      color: Theme.of(context).brightness == Brightness.dark
+          ? Colors.white
+          : Colors.black,
+    );
+  }
+
   static TextStyle authentificationTitle(BuildContext context) {
     return const TextStyle(
       color: AppColors.primary,
@@ -51,7 +61,7 @@ class AppStyles {
   }
 
   static TextStyle textButton(BuildContext context) {
-    return const TextStyle(fontSize: 14, color: AppColors.primary);
+    return const TextStyle(fontSize: 15, color: AppColors.primary);
   }
 
   static TextStyle textButtonBlack(BuildContext context) {
